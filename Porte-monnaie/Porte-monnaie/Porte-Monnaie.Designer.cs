@@ -34,7 +34,10 @@
             this.btnStats = new System.Windows.Forms.Button();
             this.BtnAjout = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tStstbNames = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +77,7 @@
             this.btnStats.TabIndex = 3;
             this.btnStats.Text = "Statistiques";
             this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // BtnAjout
             // 
@@ -92,11 +96,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(338, 180);
             this.dataGridView1.TabIndex = 5;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tStstbNames});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 350);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(375, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tStstbNames
+            // 
+            this.tStstbNames.Name = "tStstbNames";
+            this.tStstbNames.Size = new System.Drawing.Size(118, 17);
+            this.tStstbNames.Text = "toolStripStatusLabel1";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(375, 372);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnAjout);
             this.Controls.Add(this.btnStats);
@@ -106,6 +127,8 @@
             this.Name = "FrmMain";
             this.Text = "Porte ma monnaie";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +142,8 @@
         private System.Windows.Forms.Button btnStats;
         private System.Windows.Forms.Button BtnAjout;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tStstbNames;
 
 
     }

@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlCammembert = new System.Windows.Forms.Panel();
             this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlCammembert
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlCammembert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 350);
-            this.panel1.TabIndex = 0;
+            this.pnlCammembert.Location = new System.Drawing.Point(12, 12);
+            this.pnlCammembert.Name = "pnlCammembert";
+            this.pnlCammembert.Size = new System.Drawing.Size(372, 350);
+            this.pnlCammembert.TabIndex = 0;
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(12, 369);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(372, 23);
@@ -57,16 +60,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 394);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlCammembert);
             this.Name = "Graphique";
             this.Text = "Graphique";
+            this.Load += new System.EventHandler(this.Graphique_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlCammembert;
         private System.Windows.Forms.Button btnOk;
     }
 }
