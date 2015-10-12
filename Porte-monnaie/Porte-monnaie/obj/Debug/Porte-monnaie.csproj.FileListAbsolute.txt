@@ -10,3 +10,15 @@ C:\Users\CAMUGLIAL_INFO\Desktop\STD\Porte-monaie\Porte-monnaie\Porte-monnaie\obj
 C:\Users\CAMUGLIAL_INFO\Desktop\STD\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.csproj.GenerateResource.Cache
 C:\Users\CAMUGLIAL_INFO\Desktop\STD\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.exe
 C:\Users\CAMUGLIAL_INFO\Desktop\STD\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.pdb
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.exe
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.pdb
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\bin\Debug\Porte-monnaie.exe
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\bin\Debug\Porte-monnaie.pdb
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.csprojResolveAssemblyReference.cache
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.DebitCredit.resources
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.Graphique.resources
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.FrmMain.resources
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.Properties.Resources.resources
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.csproj.GenerateResource.Cache
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\bin\Debug\Porte-monnaie.mdf
+E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\bin\Debug\Porte-monnaie_log.ldf
