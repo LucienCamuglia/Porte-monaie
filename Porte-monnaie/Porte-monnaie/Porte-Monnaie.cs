@@ -13,6 +13,23 @@ namespace Porte_monnaie
             InitializeComponent();
             //ajoutes nos noms dans le status bar
             tStstbNames.Text = "Camuglia Lucien && Devaud Alan -- T.IS-E1";
+
+            // Compte le nombre de champs existant
+            int count = GestionDB.CountRowPorteMonnaie();
+
+            // S'il n'y a aucun porte-monnaie on en rajoute un
+            if (count <= 0)
+            {
+                MessageBox.Show("Il n'exist acctuellement aucun porte-monnaie ! \r\nVeuillez en créer un !");
+
+                NouveauPorteMonnaie nvPorteMonnaie = new NouveauPorteMonnaie();
+                DialogResult dr = nvPorteMonnaie.ShowDialog();
+                if (dr == DialogResult.OK)
+                    GestionDB.AddFieldPorteMonnaie(count + 1, nvPorteMonnaie.Nom, nvPorteMonnaie.Solde);
+            }
+
+
+
         }
 
         private void btnStats_Click(object sender, EventArgs e)

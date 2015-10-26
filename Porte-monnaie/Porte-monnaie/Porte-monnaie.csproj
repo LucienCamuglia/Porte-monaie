@@ -67,11 +67,18 @@
     <Compile Include="DebitCredit.Designer.cs">
       <DependentUpon>DebitCredit.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionDB.cs" />
     <Compile Include="Graphique.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Graphique.Designer.cs">
       <DependentUpon>Graphique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NouveauPorteMonnaie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NouveauPorteMonnaie.Designer.cs">
+      <DependentUpon>NouveauPorteMonnaie.cs</DependentUpon>
     </Compile>
     <Compile Include="Porte-Monnaie.cs">
       <SubType>Form</SubType>
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Graphique.resx">
       <DependentUpon>Graphique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NouveauPorteMonnaie.resx">
+      <DependentUpon>NouveauPorteMonnaie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Porte-Monnaie.resx">
       <DependentUpon>Porte-Monnaie.cs</DependentUpon>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoldeTotal = new System.Windows.Forms.Label();
             this.BtnDepense = new System.Windows.Forms.Button();
@@ -36,8 +37,15 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tStstbNames = new System.Windows.Forms.ToolStripStatusLabel();
+            this.porteMonnaieDataSet = new Porte_monnaie.PorteMonnaieDataSet();
+            this.porteMonnaieDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.porteMonnaiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.porteMonnaiesTableAdapter = new Porte_monnaie.PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +120,25 @@
             this.tStstbNames.Size = new System.Drawing.Size(118, 17);
             this.tStstbNames.Text = "toolStripStatusLabel1";
             // 
+            // porteMonnaieDataSet
+            // 
+            this.porteMonnaieDataSet.DataSetName = "PorteMonnaieDataSet";
+            this.porteMonnaieDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // porteMonnaieDataSetBindingSource
+            // 
+            this.porteMonnaieDataSetBindingSource.DataSource = this.porteMonnaieDataSet;
+            this.porteMonnaieDataSetBindingSource.Position = 0;
+            // 
+            // porteMonnaiesBindingSource
+            // 
+            this.porteMonnaiesBindingSource.DataMember = "PorteMonnaies";
+            this.porteMonnaiesBindingSource.DataSource = this.porteMonnaieDataSetBindingSource;
+            // 
+            // porteMonnaiesTableAdapter
+            // 
+            this.porteMonnaiesTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +156,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porteMonnaiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +174,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tStstbNames;
+        private System.Windows.Forms.BindingSource porteMonnaieDataSetBindingSource;
+        private PorteMonnaieDataSet porteMonnaieDataSet;
+        private System.Windows.Forms.BindingSource porteMonnaiesBindingSource;
+        private PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter porteMonnaiesTableAdapter;
 
 
     }
