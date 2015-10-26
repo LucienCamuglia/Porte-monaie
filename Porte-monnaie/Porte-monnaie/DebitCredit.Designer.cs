@@ -40,15 +40,18 @@
             // 
             // BtnValider
             // 
+            this.BtnValider.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BtnValider.Location = new System.Drawing.Point(38, 113);
             this.BtnValider.Name = "BtnValider";
             this.BtnValider.Size = new System.Drawing.Size(75, 23);
             this.BtnValider.TabIndex = 0;
             this.BtnValider.Text = "Valider";
             this.BtnValider.UseVisualStyleBackColor = true;
+            this.BtnValider.Click += new System.EventHandler(this.BtnValider_Click);
             // 
             // btnAnnuler
             // 
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(154, 113);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
@@ -119,6 +122,7 @@
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.BtnValider);
             this.Name = "DebitCredit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DebitCredit";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,6 +138,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbMotif;
         private System.Windows.Forms.TextBox txbMontant;
-        private System.Windows.Forms.ComboBox CbxCategorie;
+        public System.Windows.Forms.ComboBox CbxCategorie;
     }
 }

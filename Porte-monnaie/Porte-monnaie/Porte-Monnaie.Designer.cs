@@ -76,6 +76,7 @@
             this.BtnDepense.TabIndex = 2;
             this.BtnDepense.Text = "Dépense";
             this.BtnDepense.UseVisualStyleBackColor = true;
+            this.BtnDepense.Click += new System.EventHandler(this.BtnDepense_Click);
             // 
             // btnStats
             // 
@@ -152,6 +153,7 @@
             this.Controls.Add(this.lblSoldeTotal);
             this.Controls.Add(this.label1);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porte ma monnaie";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);

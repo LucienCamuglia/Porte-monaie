@@ -12,9 +12,20 @@ namespace Porte_monnaie
 {
     public partial class DebitCredit : Form
     {
+        public string Motif { get; set; }
+        public decimal Montant { get; set; }
+        public string Categorie { get; set; }
+
         public DebitCredit()
         {
             InitializeComponent();
+        }
+
+        private void BtnValider_Click(object sender, EventArgs e)
+        {
+            this.Motif = this.txbMotif.Text;
+            this.Montant = decimal.Parse(this.txbMontant.Text);
+            this.Categorie = (string)this.CbxCategorie.SelectedItem;
         }
     }
 }

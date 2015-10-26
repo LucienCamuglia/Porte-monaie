@@ -71,7 +71,7 @@
             // BtnAnnuler
             // 
             this.BtnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnAnnuler.Location = new System.Drawing.Point(12, 59);
+            this.BtnAnnuler.Location = new System.Drawing.Point(139, 59);
             this.BtnAnnuler.Name = "BtnAnnuler";
             this.BtnAnnuler.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnAnnuler.Size = new System.Drawing.Size(111, 31);
@@ -82,7 +82,7 @@
             // BtnAjouter
             // 
             this.BtnAjouter.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BtnAjouter.Location = new System.Drawing.Point(139, 59);
+            this.BtnAjouter.Location = new System.Drawing.Point(12, 59);
             this.BtnAjouter.Name = "BtnAjouter";
             this.BtnAjouter.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnAjouter.Size = new System.Drawing.Size(111, 31);
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 114);
+            this.ClientSize = new System.Drawing.Size(262, 106);
             this.Controls.Add(this.BtnAjouter);
             this.Controls.Add(this.BtnAnnuler);
             this.Controls.Add(this.TbxSoldePorteMonnaie);
@@ -103,6 +103,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NouveauPorteMonnaie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nouveau porte-monnaie";
             this.ResumeLayout(false);
             this.PerformLayout();
