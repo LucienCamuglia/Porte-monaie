@@ -188,5 +188,19 @@ namespace Porte_monnaie
 
             return result.ToArray();
         }
+
+        static public decimal[] GetTransactionByCat(int idPorteMonnaie, string NomCat)
+        {
+            var result = from transactions in PorteMonnaieDb.Transactions
+                         join categories in PorteMonnaieDb.Categories on transactions.IdCategorie
+                             equals categories.IdCategorie
+                         where transactions.IdPorteMonnaie == idPorteMonnaie
+                         where categories.NomCategorie == NomCat
+                         select  (decimal)transactions.Montant;
+
+            return result.ToArray();
+        }
+       
     }
+ 
 }

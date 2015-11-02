@@ -59,15 +59,24 @@ namespace Porte_monnaie
             };
 
             Cammembert.Series.Add(series1);
-
+            string[][] maserie = RecupereInfo();
 
             //créer la boucle qui affiche les séries
-            series1.Points.Add(70000);
+            /*series1.Points.Add(70000);
             series1.Points.Add(15000);
             series1.Points.Add(15000);
-            series1.Points.Add(60000);
+            series1.Points.Add(60000);*/
+            for (int i = 0; i < maserie.Length; i++)
+            {
+                series1.Points.Add(System.Convert.ToDouble(maserie[i][1]));
+
+                var point = series1.Points[i];
+                point.AxisLabel = maserie[i][1];
+                point.LegendText = maserie[i][0];
+
+            }
             //faire une seule variable dans la boucle
-            var p1 = series1.Points[0];
+            /*var p1 = series1.Points[0];
             p1.AxisLabel = "70000";
             p1.LegendText = "Tanigami";
             var p2 = series1.Points[1];
@@ -78,13 +87,35 @@ namespace Porte_monnaie
             p3.LegendText = "coop";
             var p4 = series1.Points[3];
             p4.AxisLabel = "60000";
-            p4.LegendText = "yukiguni";
+            p4.LegendText = "yukiguni";*/
 
             //fin de la boucle
             Cammembert.Invalidate();
             pnlCammembert.Controls.Add(Cammembert);
 
 
+        }
+
+        string[][] RecupereInfo()
+        {
+            string[] categories = GestionDB.GetCategories();
+            decimal depenseTotal = 0;
+            string[][] serie =new string[500][];
+
+            for (int i = 0; i < categories.Length; i++) {
+                depenseTotal = 0;
+                decimal[] transactions;
+                transactions = GestionDB.GetTransactionByCat(0, categories[i]);
+                             
+                foreach(var trans in transactions){
+                    depenseTotal += trans;
+                }
+                serie[i][0] = categories[i];
+                serie[i][1] = depenseTotal.ToString();
+            }
+
+
+            return serie;
         }
     }
 }

@@ -36,3 +36,4 @@ C:\Users\CAMUGLIAL_INFO\Desktop\STD\porte-monaie\Porte-monaie\Porte-monnaie\Port
 C:\Users\CAMUGLIAL_INFO\Desktop\STD\porte-monaie\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.Properties.Resources.resources
 C:\Users\CAMUGLIAL_INFO\Desktop\STD\porte-monaie\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte-monnaie.csproj.GenerateResource.Cache
 E:\Technicien\Structure de donnees\Projet_DB\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.NouveauPorteMonnaie.resources
+C:\Users\CAMUGLIAL_INFO\Desktop\STD\porte-monaie\Porte-monaie\Porte-monnaie\Porte-monnaie\obj\Debug\Porte_monnaie.NouveauPorteMonnaie.resources
