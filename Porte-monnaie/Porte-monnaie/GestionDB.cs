@@ -87,22 +87,70 @@ namespace Porte_monnaie
         }
 
         /// <summary>
+        /// Compte le nombre de champs dans la table Transactions
+        /// </summary>
+        /// <param name="idPorteMonnaie">id du porte-monnaie concerné</param>
+        /// <returns></returns>
+        static public int CountRowTransaction(int idPorteMonnaie)
+        {
+            var result = from transactions in PorteMonnaieDb.Transactions where transactions.IdPorteMonnaie == idPorteMonnaie select transactions;
+
+            int count = 0;
+            foreach (var porteMonnaie in result)
+                count++;
+
+            return count;
+        }
+
+        /// <summary>
         /// Effectue une transaction
         /// </summary>
         /// <param name="motif">Motif de la transaction</param>
         /// <param name="montant">Montant de la transaction</param>
         /// <param name="idCategorie">id de la catégorie</param>
         /// <param name="idPorteMonnaie">id du porte-monnaie concerné</param>
-        static public void AddTransaction(string motif, decimal montant, int idCategorie, int idPorteMonnaie)
+        /// <param name="type">type de transaction (Débit, Cérdit)</param>
+        static public void AddTransaction(string motif, decimal montant, int idCategorie, int idPorteMonnaie, string type)
         {
             Transactions transaction = new Transactions();
-            
+
+            transaction.IdTransaction = CountRowTransaction(idPorteMonnaie) + 1;
             transaction.Motif = motif;
             transaction.Montant = montant;
             transaction.IdCategorie = idCategorie;
             transaction.IdPorteMonnaie = idPorteMonnaie;
-
+            transaction.Type = type;
+            
+            if (type == "Débit")
+                montant = -montant;
+            
+            UpdateMontant(idPorteMonnaie, montant);
             PorteMonnaieDb.Transactions.InsertOnSubmit(transaction);
+
+            try
+            {
+                PorteMonnaieDb.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Met à jour le montant du porte-monnaie
+        /// </summary>
+        /// <param name="idPorteMonnaie">id du porte-monnaie</param>
+        /// <param name="montant">Montant à enlever</param>
+        static public void UpdateMontant(int idPorteMonnaie, decimal montant)
+        {
+            decimal total = GetSolde();
+            total += montant;
+
+            var result = from porteMonnaies in PorteMonnaieDb.PorteMonnaies where porteMonnaies.IdPorteMonnaie == idPorteMonnaie select porteMonnaies;
+
+            foreach (var porteMonnaie in result)
+                porteMonnaie.SoldePorteMonnaie = total;
 
             try
             {
@@ -129,6 +177,11 @@ namespace Porte_monnaie
             return idCat;
         }
 
+        /// <summary>
+        /// Récupère toutes les transactions effectuée
+        /// </summary>
+        /// <param name="idPorteMonnaie">id du porte monnaie</param>
+        /// <returns></returns>
         static public Transactions[] GetTransaction(int idPorteMonnaie)
         {
             var result = from transactions in PorteMonnaieDb.Transactions join categories in PorteMonnaieDb.Categories on transactions.IdCategorie equals categories.IdCategorie where transactions.IdPorteMonnaie == idPorteMonnaie select transactions;

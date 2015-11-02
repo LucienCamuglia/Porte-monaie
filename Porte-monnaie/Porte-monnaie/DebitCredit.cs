@@ -15,6 +15,7 @@ namespace Porte_monnaie
         public string Motif { get; set; }
         public decimal Montant { get; set; }
         public string Categorie { get; set; }
+        public string Type { get; set; }
 
         public DebitCredit()
         {

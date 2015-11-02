@@ -22,6 +22,7 @@
       <Column Name="Montant" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="IdCategorie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdPorteMonnaie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
       <Association Name="Categories_Transactions" Member="Categories" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="Categories" IsForeignKey="true" />
       <Association Name="PorteMonnaies_Transactions" Member="PorteMonnaies" ThisKey="IdPorteMonnaie" OtherKey="IdPorteMonnaie" Type="PorteMonnaies" IsForeignKey="true" />
     </Type>

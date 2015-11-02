@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -29,6 +30,7 @@ namespace Porte_monnaie
             }
 
             this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
+            this.AfficheTransaction();
         }
 
         private void btnStats_Click(object sender, EventArgs e)
@@ -45,15 +47,53 @@ namespace Porte_monnaie
             foreach (string name in cats)
                 frmDebitCredit.CbxCategorie.Items.Add(name); // Ajoute les catégorie dans la combobox
             frmDebitCredit.CbxCategorie.SelectedIndex = 0;
+            frmDebitCredit.Type = "Débit";
 
             DialogResult dr = frmDebitCredit.ShowDialog();
 
             if (dr == DialogResult.OK)
             {
                 int idCat = GestionDB.GetIdCategorie(frmDebitCredit.Categorie); // Récupère l'id de la catégorie
-                GestionDB.AddTransaction(frmDebitCredit.Motif, frmDebitCredit.Montant, idCat, 1); // Ajoute le transaction
-                dataGridView1.DataSource = GestionDB.GetTransaction(1);
+                GestionDB.AddTransaction(frmDebitCredit.Motif, frmDebitCredit.Montant, idCat, 1, frmDebitCredit.Type); // Ajoute la transaction
+                this.AfficheTransaction();
+                this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
             }
+        }
+
+        /// <summary>
+        /// Affiche les transactions effectuées
+        /// </summary>
+        private void AfficheTransaction()
+        {
+            Transactions[] transactions = GestionDB.GetTransaction(1);
+            List<string> listTransactions = new List<string>();
+            foreach (Transactions tr in transactions)
+            {
+                string item = AjusterText(tr.Motif, 20) + " " + AjusterText(tr.Categories.NomCategorie, 20) + " ";
+                item += (tr.Type == "Débit") ? "-" : "+";
+                item += tr.Montant;
+                
+                listTransactions.Add(item);
+            }
+
+            lbxTransactions.Items.Clear();
+            lbxTransactions.Items.AddRange(listTransactions.ToArray());
+        }
+
+        /// <summary>
+        /// Ajuste la taille du text
+        /// </summary>
+        /// <param name="text">Text à modifier</param>
+        /// <param name="tailleText">Taille du texte</param>
+        /// <returns></returns>
+        private string AjusterText(string text, int tailleText)
+        {
+            while (text.Length < tailleText)
+            {
+                text += " ";
+            }
+
+            return text;
         }
     }
 }

@@ -364,6 +364,8 @@ namespace Porte_monnaie
 		
 		private int _IdPorteMonnaie;
 		
+		private string _Type;
+		
 		private EntityRef<Categories> _Categories;
 		
 		private EntityRef<PorteMonnaies> _PorteMonnaies;
@@ -382,6 +384,8 @@ namespace Porte_monnaie
     partial void OnIdCategorieChanged();
     partial void OnIdPorteMonnaieChanging(int value);
     partial void OnIdPorteMonnaieChanged();
+    partial void OnTypeChanging(string value);
+    partial void OnTypeChanged();
     #endregion
 		
 		public Transactions()
@@ -495,6 +499,26 @@ namespace Porte_monnaie
 					this._IdPorteMonnaie = value;
 					this.SendPropertyChanged("IdPorteMonnaie");
 					this.OnIdPorteMonnaieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
 				}
 			}
 		}

@@ -34,14 +34,13 @@
             this.BtnDepense = new System.Windows.Forms.Button();
             this.btnStats = new System.Windows.Forms.Button();
             this.BtnAjout = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tStstbNames = new System.Windows.Forms.ToolStripStatusLabel();
             this.porteMonnaieDataSet = new Porte_monnaie.PorteMonnaieDataSet();
             this.porteMonnaieDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.porteMonnaiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.porteMonnaiesTableAdapter = new Porte_monnaie.PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lbxTransactions = new System.Windows.Forms.ListBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).BeginInit();
@@ -97,21 +96,13 @@
             this.BtnAjout.Text = "Ajout";
             this.BtnAjout.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(338, 180);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tStstbNames});
             this.statusStrip1.Location = new System.Drawing.Point(0, 350);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(375, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(362, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -140,13 +131,21 @@
             // 
             this.porteMonnaiesTableAdapter.ClearBeforeFill = true;
             // 
+            // lbxTransactions
+            // 
+            this.lbxTransactions.FormattingEnabled = true;
+            this.lbxTransactions.Location = new System.Drawing.Point(17, 122);
+            this.lbxTransactions.Name = "lbxTransactions";
+            this.lbxTransactions.Size = new System.Drawing.Size(336, 225);
+            this.lbxTransactions.TabIndex = 7;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 372);
+            this.ClientSize = new System.Drawing.Size(362, 372);
+            this.Controls.Add(this.lbxTransactions);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnAjout);
             this.Controls.Add(this.btnStats);
             this.Controls.Add(this.BtnDepense);
@@ -155,7 +154,6 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porte ma monnaie";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).EndInit();
@@ -173,13 +171,13 @@
         private System.Windows.Forms.Button BtnDepense;
         private System.Windows.Forms.Button btnStats;
         private System.Windows.Forms.Button BtnAjout;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tStstbNames;
         private System.Windows.Forms.BindingSource porteMonnaieDataSetBindingSource;
         private PorteMonnaieDataSet porteMonnaieDataSet;
         private System.Windows.Forms.BindingSource porteMonnaiesBindingSource;
         private PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter porteMonnaiesTableAdapter;
+        private System.Windows.Forms.ListBox lbxTransactions;
 
 
     }
