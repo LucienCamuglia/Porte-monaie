@@ -61,44 +61,24 @@ namespace Porte_monnaie
             };
 
             Cammembert.Series.Add(series1);
-            string[,] maserie = RecupereInfo();
+            string[,] maserie = RecupereInfo();            
 
-
-
-
-
-            //créer la boucle qui affiche les séries
-
-            //series1.Points.Add(System.Convert.ToDouble(maserie[0, 1]));
-            //series1.Points.Add(System.Convert.ToDouble(maserie[1, 1]));
-
-            //series1.Points.Add(15000);
-            //series1.Points.Add(60000);
+         
             for (int i = 0; i < maserie.Length/2; i++)
             {
                 series1.Points.Add(System.Convert.ToDouble(maserie[i, 1]));
-
+                               
                 var point = series1.Points[i];
-                point.AxisLabel = maserie[i, 1];
-                point.LegendText = maserie[i, 0];
+                if (System.Convert.ToDouble(maserie[i, 1]) > 0)
+                {
+                    point.AxisLabel = maserie[i, 1];
+                }
+                    point.LegendText = maserie[i, 0];
+                
 
 
             }
-            //faire une seule variable dans la boucle
-            //var p1 = series1.Points[0];
-            //p1.AxisLabel = maserie[0, 0];
-            //p1.LegendText = maserie[0, 1];
-            //var p2 = series1.Points[1];
-            //p2.AxisLabel = maserie[1, 0];
-            //p2.LegendText = maserie[1, 1];
-            //var p3 = series1.Points[0];
-            //p3.AxisLabel = "15000";
-            //p3.LegendText = "coop";
-            //var p4 = series1.Points[1];
-            //p4.AxisLabel = "60000";
-            //p4.LegendText = "yukiguni";
-
-            //fin de la boucle
+            
             Cammembert.Invalidate();
             pnlCammembert.Controls.Add(Cammembert);
 

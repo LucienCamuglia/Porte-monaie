@@ -76,7 +76,9 @@
             // 
             // BtnDepense
             // 
+            this.BtnDepense.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnDepense.Location = new System.Drawing.Point(15, 77);
+            this.BtnDepense.MinimumSize = new System.Drawing.Size(75, 23);
             this.BtnDepense.Name = "BtnDepense";
             this.BtnDepense.Size = new System.Drawing.Size(75, 23);
             this.BtnDepense.TabIndex = 2;
@@ -86,7 +88,9 @@
             // 
             // btnStats
             // 
+            this.btnStats.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnStats.Location = new System.Drawing.Point(150, 77);
+            this.btnStats.MinimumSize = new System.Drawing.Size(75, 23);
             this.btnStats.Name = "btnStats";
             this.btnStats.Size = new System.Drawing.Size(75, 23);
             this.btnStats.TabIndex = 3;
@@ -96,7 +100,9 @@
             // 
             // BtnAjout
             // 
+            this.BtnAjout.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnAjout.Location = new System.Drawing.Point(278, 77);
+            this.BtnAjout.MinimumSize = new System.Drawing.Size(75, 23);
             this.BtnAjout.Name = "BtnAjout";
             this.BtnAjout.Size = new System.Drawing.Size(75, 23);
             this.BtnAjout.TabIndex = 4;
@@ -141,6 +147,9 @@
             // 
             // lbxTransactions
             // 
+            this.lbxTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbxTransactions.FormattingEnabled = true;
             this.lbxTransactions.Location = new System.Drawing.Point(17, 122);
             this.lbxTransactions.Name = "lbxTransactions";
@@ -205,6 +214,7 @@
             this.Controls.Add(this.lblSoldeTotal);
             this.Controls.Add(this.label1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(378, 410);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porte ma monnaie";
