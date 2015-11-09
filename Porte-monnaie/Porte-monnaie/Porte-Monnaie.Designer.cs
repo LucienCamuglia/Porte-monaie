@@ -61,6 +61,7 @@
             // 
             this.lblSoldeTotal.AutoSize = true;
             this.lblSoldeTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoldeTotal.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSoldeTotal.Location = new System.Drawing.Point(133, 9);
             this.lblSoldeTotal.Name = "lblSoldeTotal";
             this.lblSoldeTotal.Size = new System.Drawing.Size(23, 25);

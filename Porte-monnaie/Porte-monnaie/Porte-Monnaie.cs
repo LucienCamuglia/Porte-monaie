@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -9,6 +10,9 @@ namespace Porte_monnaie
 {
     public partial class FrmMain : Form
     {
+        private const decimal ORANGE_ZONE = 50;
+        private const decimal RED_ZONE = 1;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -29,8 +33,7 @@ namespace Porte_monnaie
                     GestionDB.AddFieldPorteMonnaie(count + 1, nvPorteMonnaie.Nom, nvPorteMonnaie.Solde); // Ajout le porte-monnaie à la base de données
             }
 
-            this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
-            this.AfficheTransaction();
+            this.UpdateAffichage();
         }
 
         private void btnStats_Click(object sender, EventArgs e)
@@ -55,8 +58,7 @@ namespace Porte_monnaie
             {
                 int idCat = GestionDB.GetIdCategorie(frmDebitCredit.Categorie); // Récupère l'id de la catégorie
                 GestionDB.AddTransaction(frmDebitCredit.Motif, frmDebitCredit.Montant, idCat, 1, frmDebitCredit.Type); // Ajoute la transaction
-                this.AfficheTransaction();
-                this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
+                this.UpdateAffichage();
             }
         }
 
@@ -96,6 +98,35 @@ namespace Porte_monnaie
             return text;
         }
 
+        /// <summary>
+        /// Affiche le solde du porte-monnaie
+        /// </summary>
+        private void AfficheSolde()
+        {
+            // Récupère le solde total
+            decimal solde = GestionDB.GetSolde();
+
+            // Modifie la couleur du label selon le solde
+            if (solde > RED_ZONE && solde <= ORANGE_ZONE)
+                this.lblSoldeTotal.ForeColor = Color.Orange;
+            else if (solde <= RED_ZONE)
+                this.lblSoldeTotal.ForeColor = Color.Red;
+            else
+                this.lblSoldeTotal.ForeColor = Color.Black;
+
+            // Affiche le solde
+            this.lblSoldeTotal.Text = solde.ToString();
+        }
+
+        /// <summary>
+        /// Met à jour l'affichage
+        /// </summary>
+        private void UpdateAffichage()
+        {
+            this.AfficheTransaction();
+            this.AfficheSolde();
+        }
+
         private void BtnAjout_Click(object sender, EventArgs e)
         {
             DebitCredit frmDebitCredit = new DebitCredit();
@@ -112,8 +143,7 @@ namespace Porte_monnaie
             {
                 int idCat = GestionDB.GetIdCategorie(frmDebitCredit.Categorie); // Récupère l'id de la catégorie
                 GestionDB.AddTransaction(frmDebitCredit.Motif, frmDebitCredit.Montant, idCat, 1, frmDebitCredit.Type); // Ajoute la transaction
-                this.AfficheTransaction();
-                this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
+                this.UpdateAffichage();
             }
         }
     }
