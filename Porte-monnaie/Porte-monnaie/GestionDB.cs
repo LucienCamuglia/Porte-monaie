@@ -59,7 +59,7 @@ namespace Porte_monnaie
         /// <returns>Solde du porte-monnaie</returns>
         static public decimal GetSolde()
         {
-            var result = from porteMonnaie in PorteMonnaieDb.PorteMonnaies select porteMonnaie.SoldePorteMonnaie;
+            var result = from porteMonnaie in PorteMonnaieDb.PorteMonnaies select (decimal)porteMonnaie.SoldePorteMonnaie;
 
             decimal solde = 0;
 
