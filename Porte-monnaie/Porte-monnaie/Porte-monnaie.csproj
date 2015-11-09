@@ -121,6 +121,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="PorteMonnaieDataSet.xsc">
       <DependentUpon>PorteMonnaieDataSet.xsd</DependentUpon>
@@ -159,6 +160,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Porte-monnaie.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\manage_sources.png" />
+    <None Include="Resources\door_out.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

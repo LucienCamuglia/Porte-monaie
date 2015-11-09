@@ -41,17 +41,23 @@
             this.porteMonnaiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.porteMonnaiesTableAdapter = new Porte_monnaie.PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter();
             this.lbxTransactions = new System.Windows.Forms.ListBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.catégoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaiesBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 25);
             this.label1.TabIndex = 0;
@@ -62,7 +68,7 @@
             this.lblSoldeTotal.AutoSize = true;
             this.lblSoldeTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoldeTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSoldeTotal.Location = new System.Drawing.Point(133, 9);
+            this.lblSoldeTotal.Location = new System.Drawing.Point(133, 36);
             this.lblSoldeTotal.Name = "lblSoldeTotal";
             this.lblSoldeTotal.Size = new System.Drawing.Size(23, 25);
             this.lblSoldeTotal.TabIndex = 1;
@@ -141,6 +147,50 @@
             this.lbxTransactions.Size = new System.Drawing.Size(336, 225);
             this.lbxTransactions.TabIndex = 7;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fichierToolStripMenuItem,
+            this.editionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(362, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fichierToolStripMenuItem
+            // 
+            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitterToolStripMenuItem});
+            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
+            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.fichierToolStripMenuItem.Text = "Fichier";
+            // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Image = global::Porte_monnaie.Properties.Resources.door_out;
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            // 
+            // editionToolStripMenuItem
+            // 
+            this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.catégoriesToolStripMenuItem});
+            this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
+            this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editionToolStripMenuItem.Text = "Edition";
+            // 
+            // catégoriesToolStripMenuItem
+            // 
+            this.catégoriesToolStripMenuItem.Image = global::Porte_monnaie.Properties.Resources.manage_sources;
+            this.catégoriesToolStripMenuItem.Name = "catégoriesToolStripMenuItem";
+            this.catégoriesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.catégoriesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.catégoriesToolStripMenuItem.Text = "Catégories";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,11 +198,13 @@
             this.ClientSize = new System.Drawing.Size(362, 372);
             this.Controls.Add(this.lbxTransactions);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.BtnAjout);
             this.Controls.Add(this.btnStats);
             this.Controls.Add(this.BtnDepense);
             this.Controls.Add(this.lblSoldeTotal);
             this.Controls.Add(this.label1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porte ma monnaie";
@@ -161,6 +213,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaiesBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +234,11 @@
         private System.Windows.Forms.BindingSource porteMonnaiesBindingSource;
         private PorteMonnaieDataSetTableAdapters.PorteMonnaiesTableAdapter porteMonnaiesTableAdapter;
         private System.Windows.Forms.ListBox lbxTransactions;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem catégoriesToolStripMenuItem;
 
 
     }

@@ -57,6 +57,7 @@
             // TbxNomPorteMonnaie
             // 
             this.TbxNomPorteMonnaie.Location = new System.Drawing.Point(59, 6);
+            this.TbxNomPorteMonnaie.MaxLength = 50;
             this.TbxNomPorteMonnaie.Name = "TbxNomPorteMonnaie";
             this.TbxNomPorteMonnaie.Size = new System.Drawing.Size(191, 20);
             this.TbxNomPorteMonnaie.TabIndex = 2;
@@ -78,6 +79,7 @@
             this.BtnAnnuler.TabIndex = 4;
             this.BtnAnnuler.Text = "Annuler";
             this.BtnAnnuler.UseVisualStyleBackColor = true;
+            this.BtnAnnuler.Click += new System.EventHandler(this.BtnAnnuler_Click);
             // 
             // BtnAjouter
             // 

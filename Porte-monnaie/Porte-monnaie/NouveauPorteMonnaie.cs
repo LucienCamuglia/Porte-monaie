@@ -25,5 +25,10 @@ namespace Porte_monnaie
             this.Nom = TbxNomPorteMonnaie.Text;
             this.Solde = decimal.Parse(TbxSoldePorteMonnaie.Text);
         }
+
+        private void BtnAnnuler_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -146,5 +146,10 @@ namespace Porte_monnaie
                 this.UpdateAffichage();
             }
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
