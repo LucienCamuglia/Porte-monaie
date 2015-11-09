@@ -196,10 +196,12 @@ namespace Porte_monnaie
                              equals categories.IdCategorie
                          where transactions.IdPorteMonnaie == idPorteMonnaie
                          where categories.NomCategorie == NomCat
-                         select  (decimal)transactions.Montant;
+                         select  System.Convert.ToDecimal(transactions.Montant);
 
             return result.ToArray();
         }
+
+      
        
     }
  
