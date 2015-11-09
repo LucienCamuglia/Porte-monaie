@@ -45,7 +45,7 @@ namespace Porte_monnaie
         private void BtnDepense_Click(object sender, EventArgs e)
         {
             DebitCredit frmDebitCredit = new DebitCredit();
-            string[] cats = GestionDB.GetCategories(); // Récupère toute les catégories
+            string[] cats = GestionDB.GetCategories("Débit"); // Récupère toute les catégories
 
             foreach (string name in cats)
                 frmDebitCredit.CbxCategorie.Items.Add(name); // Ajoute les catégorie dans la combobox
@@ -130,7 +130,7 @@ namespace Porte_monnaie
         private void BtnAjout_Click(object sender, EventArgs e)
         {
             DebitCredit frmDebitCredit = new DebitCredit();
-            string[] cats = GestionDB.GetCategories(); // Récupère toute les catégories
+            string[] cats = GestionDB.GetCategories("Crédit"); // Récupère toute les catégories
 
             foreach (string name in cats)
                 frmDebitCredit.CbxCategorie.Items.Add(name); // Ajoute les catégorie dans la combobox

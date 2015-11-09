@@ -42,7 +42,7 @@ namespace Porte_monnaie
         /// </summary>
         void ChargeGraphique()
         {
-             
+
             //supprime toutes les parts du cammembert
             Cammembert.Series.Clear();
             //pallete de couleures
@@ -61,33 +61,39 @@ namespace Porte_monnaie
             };
 
             Cammembert.Series.Add(series1);
-            string[,] maserie = RecupereInfo();            
+            string[,] maserie = RecupereInfo("Débit");
 
-         
-            for (int i = 0; i < maserie.Length/2; i++)
+
+            for (int i = 0; i < maserie.Length / 2; i++)
             {
                 series1.Points.Add(System.Convert.ToDouble(maserie[i, 1]));
-                               
+
                 var point = series1.Points[i];
                 if (System.Convert.ToDouble(maserie[i, 1]) > 0)
                 {
                     point.AxisLabel = maserie[i, 1];
                 }
-                    point.LegendText = maserie[i, 0];
-                
+                point.LegendText = maserie[i, 0];
+
 
 
             }
-            
+
             Cammembert.Invalidate();
             pnlCammembert.Controls.Add(Cammembert);
 
 
         }
 
-        string[,] RecupereInfo()
+        /// <summary>
+        /// Recupère les information de Débit ou crédit
+        /// </summary>        
+        /// <param name="type">Débit / Crédit</param>
+        /// </summary>
+        /// <returns>Tableau avec le nom de catégorie et le montant dépensé pour celle-ci</returns>        
+        string[,] RecupereInfo(string type)
         {
-            string[] categories = GestionDB.GetCategories();
+            string[] categories = GestionDB.GetCategories(type);
             decimal depenseTotal = 0;
             string[,] serie = new string[categories.Length, 2];
 
@@ -95,14 +101,14 @@ namespace Porte_monnaie
             {
                 depenseTotal = 0;
                 decimal[] transactions;
-                transactions = GestionDB.GetTransactionByCat(1, categories[i]);
+                transactions = GestionDB.GetTransactionByCat(1, categories[i], type);
 
                 foreach (var trans in transactions)
                 {
                     depenseTotal += trans;
                 }
                 serie[i, 0] = categories[i];
-                serie[i, 1] = depenseTotal.ToString().Substring(0,depenseTotal.ToString().IndexOf('.')+2);
+                serie[i, 1] = depenseTotal.ToString().Substring(0, depenseTotal.ToString().IndexOf('.') + 2);
 
             }
 

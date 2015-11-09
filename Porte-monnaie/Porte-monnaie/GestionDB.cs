@@ -74,11 +74,11 @@ namespace Porte_monnaie
         /// Récupère le nom de toutes les catégories
         /// </summary>
         /// <returns>tableau contenant le nom des categories</returns>
-        static public string[] GetCategories()
+        static public string[] GetCategories(string type)
         {
             List<string> cats = new List<string>();
 
-            var result = from categories in PorteMonnaieDb.Categories select categories.NomCategorie;
+            var result = from categories in PorteMonnaieDb.Categories where categories.TypeCategorie == type select categories.NomCategorie;
 
             foreach (var cat in result)
                 cats.Add(cat);
@@ -189,12 +189,13 @@ namespace Porte_monnaie
             return result.ToArray();
         }
 
-        static public decimal[] GetTransactionByCat(int idPorteMonnaie, string NomCat)
+        static public decimal[] GetTransactionByCat(int idPorteMonnaie, string NomCat, string Type)
         {
             var result = from transactions in PorteMonnaieDb.Transactions
                          join categories in PorteMonnaieDb.Categories on transactions.IdCategorie
                              equals categories.IdCategorie
                          where transactions.IdPorteMonnaie == idPorteMonnaie
+                         where transactions.Type == Type
                          where categories.NomCategorie == NomCat
                          select  System.Convert.ToDecimal(transactions.Montant);
 

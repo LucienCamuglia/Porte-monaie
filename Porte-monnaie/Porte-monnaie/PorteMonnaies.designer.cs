@@ -30,15 +30,15 @@ namespace Porte_monnaie
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnCreated();
-    partial void InsertCategories(Categories instance);
-    partial void UpdateCategories(Categories instance);
-    partial void DeleteCategories(Categories instance);
     partial void InsertPorteMonnaies(PorteMonnaies instance);
     partial void UpdatePorteMonnaies(PorteMonnaies instance);
     partial void DeletePorteMonnaies(PorteMonnaies instance);
     partial void InsertTransactions(Transactions instance);
     partial void UpdateTransactions(Transactions instance);
     partial void DeleteTransactions(Transactions instance);
+    partial void InsertCategories(Categories instance);
+    partial void UpdateCategories(Categories instance);
+    partial void DeleteCategories(Categories instance);
     #endregion
 		
 		public PorteMonnaiesDataContext() : 
@@ -71,14 +71,6 @@ namespace Porte_monnaie
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Categories> Categories
-		{
-			get
-			{
-				return this.GetTable<Categories>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PorteMonnaies> PorteMonnaies
 		{
 			get
@@ -94,119 +86,13 @@ namespace Porte_monnaie
 				return this.GetTable<Transactions>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
-	public partial class Categories : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdCategorie;
-		
-		private string _NomCategorie;
-		
-		private EntitySet<Transactions> _Transactions;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdCategorieChanging(int value);
-    partial void OnIdCategorieChanged();
-    partial void OnNomCategorieChanging(string value);
-    partial void OnNomCategorieChanged();
-    #endregion
-		
-		public Categories()
-		{
-			this._Transactions = new EntitySet<Transactions>(new Action<Transactions>(this.attach_Transactions), new Action<Transactions>(this.detach_Transactions));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategorie", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdCategorie
+		public System.Data.Linq.Table<Categories> Categories
 		{
 			get
 			{
-				return this._IdCategorie;
+				return this.GetTable<Categories>();
 			}
-			set
-			{
-				if ((this._IdCategorie != value))
-				{
-					this.OnIdCategorieChanging(value);
-					this.SendPropertyChanging();
-					this._IdCategorie = value;
-					this.SendPropertyChanged("IdCategorie");
-					this.OnIdCategorieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomCategorie", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NomCategorie
-		{
-			get
-			{
-				return this._NomCategorie;
-			}
-			set
-			{
-				if ((this._NomCategorie != value))
-				{
-					this.OnNomCategorieChanging(value);
-					this.SendPropertyChanging();
-					this._NomCategorie = value;
-					this.SendPropertyChanged("NomCategorie");
-					this.OnNomCategorieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categories_Transactions", Storage="_Transactions", ThisKey="IdCategorie", OtherKey="IdCategorie")]
-		public EntitySet<Transactions> Transactions
-		{
-			get
-			{
-				return this._Transactions;
-			}
-			set
-			{
-				this._Transactions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Transactions(Transactions entity)
-		{
-			this.SendPropertyChanging();
-			entity.Categories = this;
-		}
-		
-		private void detach_Transactions(Transactions entity)
-		{
-			this.SendPropertyChanging();
-			entity.Categories = null;
 		}
 	}
 	
@@ -366,9 +252,9 @@ namespace Porte_monnaie
 		
 		private string _Type;
 		
-		private EntityRef<Categories> _Categories;
-		
 		private EntityRef<PorteMonnaies> _PorteMonnaies;
+		
+		private EntityRef<Categories> _Categories;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -390,8 +276,8 @@ namespace Porte_monnaie
 		
 		public Transactions()
 		{
-			this._Categories = default(EntityRef<Categories>);
 			this._PorteMonnaies = default(EntityRef<PorteMonnaies>);
+			this._Categories = default(EntityRef<Categories>);
 			OnCreated();
 		}
 		
@@ -523,40 +409,6 @@ namespace Porte_monnaie
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categories_Transactions", Storage="_Categories", ThisKey="IdCategorie", OtherKey="IdCategorie", IsForeignKey=true)]
-		public Categories Categories
-		{
-			get
-			{
-				return this._Categories.Entity;
-			}
-			set
-			{
-				Categories previousValue = this._Categories.Entity;
-				if (((previousValue != value) 
-							|| (this._Categories.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Categories.Entity = null;
-						previousValue.Transactions.Remove(this);
-					}
-					this._Categories.Entity = value;
-					if ((value != null))
-					{
-						value.Transactions.Add(this);
-						this._IdCategorie = value.IdCategorie;
-					}
-					else
-					{
-						this._IdCategorie = default(int);
-					}
-					this.SendPropertyChanged("Categories");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PorteMonnaies_Transactions", Storage="_PorteMonnaies", ThisKey="IdPorteMonnaie", OtherKey="IdPorteMonnaie", IsForeignKey=true)]
 		public PorteMonnaies PorteMonnaies
 		{
@@ -591,6 +443,40 @@ namespace Porte_monnaie
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categories_Transactions", Storage="_Categories", ThisKey="IdCategorie", OtherKey="IdCategorie", IsForeignKey=true)]
+		public Categories Categories
+		{
+			get
+			{
+				return this._Categories.Entity;
+			}
+			set
+			{
+				Categories previousValue = this._Categories.Entity;
+				if (((previousValue != value) 
+							|| (this._Categories.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Categories.Entity = null;
+						previousValue.Transactions.Remove(this);
+					}
+					this._Categories.Entity = value;
+					if ((value != null))
+					{
+						value.Transactions.Add(this);
+						this._IdCategorie = value.IdCategorie;
+					}
+					else
+					{
+						this._IdCategorie = default(int);
+					}
+					this.SendPropertyChanged("Categories");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -609,6 +495,144 @@ namespace Porte_monnaie
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
+	public partial class Categories : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdCategorie;
+		
+		private string _NomCategorie;
+		
+		private string _TypeCategorie;
+		
+		private EntitySet<Transactions> _Transactions;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdCategorieChanging(int value);
+    partial void OnIdCategorieChanged();
+    partial void OnNomCategorieChanging(string value);
+    partial void OnNomCategorieChanged();
+    partial void OnTypeCategorieChanging(string value);
+    partial void OnTypeCategorieChanged();
+    #endregion
+		
+		public Categories()
+		{
+			this._Transactions = new EntitySet<Transactions>(new Action<Transactions>(this.attach_Transactions), new Action<Transactions>(this.detach_Transactions));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCategorie", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdCategorie
+		{
+			get
+			{
+				return this._IdCategorie;
+			}
+			set
+			{
+				if ((this._IdCategorie != value))
+				{
+					this.OnIdCategorieChanging(value);
+					this.SendPropertyChanging();
+					this._IdCategorie = value;
+					this.SendPropertyChanged("IdCategorie");
+					this.OnIdCategorieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomCategorie", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NomCategorie
+		{
+			get
+			{
+				return this._NomCategorie;
+			}
+			set
+			{
+				if ((this._NomCategorie != value))
+				{
+					this.OnNomCategorieChanging(value);
+					this.SendPropertyChanging();
+					this._NomCategorie = value;
+					this.SendPropertyChanged("NomCategorie");
+					this.OnNomCategorieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeCategorie", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TypeCategorie
+		{
+			get
+			{
+				return this._TypeCategorie;
+			}
+			set
+			{
+				if ((this._TypeCategorie != value))
+				{
+					this.OnTypeCategorieChanging(value);
+					this.SendPropertyChanging();
+					this._TypeCategorie = value;
+					this.SendPropertyChanged("TypeCategorie");
+					this.OnTypeCategorieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categories_Transactions", Storage="_Transactions", ThisKey="IdCategorie", OtherKey="IdCategorie")]
+		public EntitySet<Transactions> Transactions
+		{
+			get
+			{
+				return this._Transactions;
+			}
+			set
+			{
+				this._Transactions.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Transactions(Transactions entity)
+		{
+			this.SendPropertyChanging();
+			entity.Categories = this;
+		}
+		
+		private void detach_Transactions(Transactions entity)
+		{
+			this.SendPropertyChanging();
+			entity.Categories = null;
 		}
 	}
 }
