@@ -95,5 +95,26 @@ namespace Porte_monnaie
 
             return text;
         }
+
+        private void BtnAjout_Click(object sender, EventArgs e)
+        {
+            DebitCredit frmDebitCredit = new DebitCredit();
+            string[] cats = GestionDB.GetCategories(); // Récupère toute les catégories
+
+            foreach (string name in cats)
+                frmDebitCredit.CbxCategorie.Items.Add(name); // Ajoute les catégorie dans la combobox
+            frmDebitCredit.CbxCategorie.SelectedIndex = 0;
+            frmDebitCredit.Type = "Crédit";
+
+            DialogResult dr = frmDebitCredit.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                int idCat = GestionDB.GetIdCategorie(frmDebitCredit.Categorie); // Récupère l'id de la catégorie
+                GestionDB.AddTransaction(frmDebitCredit.Motif, frmDebitCredit.Montant, idCat, 1, frmDebitCredit.Type); // Ajoute la transaction
+                this.AfficheTransaction();
+                this.lblSoldeTotal.Text = GestionDB.GetSolde().ToString();
+            }
+        }
     }
 }

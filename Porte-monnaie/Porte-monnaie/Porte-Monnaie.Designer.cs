@@ -95,6 +95,7 @@
             this.BtnAjout.TabIndex = 4;
             this.BtnAjout.Text = "Ajout";
             this.BtnAjout.UseVisualStyleBackColor = true;
+            this.BtnAjout.Click += new System.EventHandler(this.BtnAjout_Click);
             // 
             // statusStrip1
             // 
