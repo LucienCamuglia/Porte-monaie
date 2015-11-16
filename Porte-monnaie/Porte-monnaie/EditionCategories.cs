@@ -16,5 +16,11 @@ namespace Porte_monnaie
         {
             InitializeComponent();
         }
+
+        public void SetCategories(string[] CatDebit, string[] CatCredit)
+        {
+            this.lbxCategoriesCredit.Items.AddRange(CatCredit);
+            this.lbxCategoriesDebit.Items.AddRange(CatDebit);
+        }
     }
 }

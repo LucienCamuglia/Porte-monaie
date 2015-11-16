@@ -74,6 +74,23 @@ namespace Porte_monnaie
         /// Récupère le nom de toutes les catégories
         /// </summary>
         /// <returns>tableau contenant le nom des categories</returns>
+        static public string[] GetCategories()
+        {
+            List<string> cats = new List<string>();
+
+            var result = from categories in PorteMonnaieDb.Categories select categories.NomCategorie;
+
+            foreach (var cat in result)
+                cats.Add(cat);
+
+            return cats.ToArray();
+        }
+
+        /// <summary>
+        /// Récupère le nom de toutes les catégories
+        /// </summary>
+        /// <param name="type">nom de la categorie</param>
+        /// <returns></returns>
         static public string[] GetCategories(string type)
         {
             List<string> cats = new List<string>();

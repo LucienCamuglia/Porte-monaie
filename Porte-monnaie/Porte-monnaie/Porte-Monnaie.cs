@@ -155,6 +155,10 @@ namespace Porte_monnaie
         private void catégoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditionCategories frmCat = new EditionCategories();
+
+            // Récupère les catégories et initialise les lists de la fenêtre avec
+            frmCat.SetCategories(GestionDB.GetCategories("Débit"), GestionDB.GetCategories("Credit"));
+
             frmCat.ShowDialog();
         }
     }
