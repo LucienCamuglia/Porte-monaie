@@ -160,8 +160,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Porte-monnaie.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\manage_sources.png" />
-    <None Include="Resources\door_out.png" />
+    <None Include="Resources\manage_sources.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\door_out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
