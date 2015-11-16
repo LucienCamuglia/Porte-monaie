@@ -70,8 +70,8 @@
     <Compile Include="EditionCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditionCategories.Designer.cs">
-      <DependentUpon>EditionCategories.cs</DependentUpon>
+    <Compile Include="FrmColor.Designer.cs">
+      <DependentUpon>FrmColor.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionDB.cs" />
     <Compile Include="Graphique.cs">
@@ -109,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditionCategories.resx">
       <DependentUpon>EditionCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColor.resx">
+      <DependentUpon>FrmColor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graphique.resx">
       <DependentUpon>Graphique.cs</DependentUpon>
@@ -169,6 +172,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Porte-monnaie.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\bullet_palette.png" />
     <None Include="Resources\manage_sources.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

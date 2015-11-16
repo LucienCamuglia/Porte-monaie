@@ -1,6 +1,6 @@
 ﻿namespace Porte_monnaie
 {
-    partial class Graphique
+    partial class FrmGraphique
     {
         /// <summary>
         /// Required designer variable.
@@ -31,16 +31,18 @@
             this.pnlDepense = new System.Windows.Forms.Panel();
             this.btnOk = new System.Windows.Forms.Button();
             this.PnlCredit = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.choixDesCouleursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDepense
             // 
-            this.pnlDepense.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDepense.Location = new System.Drawing.Point(12, 12);
+            this.pnlDepense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlDepense.Location = new System.Drawing.Point(1, 27);
             this.pnlDepense.Name = "pnlDepense";
-            this.pnlDepense.Size = new System.Drawing.Size(388, 351);
+            this.pnlDepense.Size = new System.Drawing.Size(399, 336);
             this.pnlDepense.TabIndex = 0;
             // 
             // btnOk
@@ -57,15 +59,31 @@
             // 
             // PnlCredit
             // 
-            this.PnlCredit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.PnlCredit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PnlCredit.Location = new System.Drawing.Point(411, 12);
+            this.PnlCredit.Location = new System.Drawing.Point(411, 27);
             this.PnlCredit.Name = "PnlCredit";
-            this.PnlCredit.Size = new System.Drawing.Size(388, 351);
+            this.PnlCredit.Size = new System.Drawing.Size(399, 336);
             this.PnlCredit.TabIndex = 1;
             // 
-            // Graphique
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.choixDesCouleursToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(811, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // choixDesCouleursToolStripMenuItem
+            // 
+            this.choixDesCouleursToolStripMenuItem.Name = "choixDesCouleursToolStripMenuItem";
+            this.choixDesCouleursToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.choixDesCouleursToolStripMenuItem.Text = "Choix des couleurs";
+            this.choixDesCouleursToolStripMenuItem.Click += new System.EventHandler(this.choixDesCouleursToolStripMenuItem_Click);
+            // 
+            // FrmGraphique
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,10 +91,15 @@
             this.Controls.Add(this.PnlCredit);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.pnlDepense);
-            this.Name = "Graphique";
+            this.Controls.Add(this.menuStrip1);
+            this.Name = "FrmGraphique";
             this.Text = "Graphique";
             this.Load += new System.EventHandler(this.Graphique_Load);
+            this.Resize += new System.EventHandler(this.Graphique_Resize);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,5 +108,7 @@
         private System.Windows.Forms.Panel pnlDepense;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Panel PnlCredit;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem choixDesCouleursToolStripMenuItem;
     }
 }

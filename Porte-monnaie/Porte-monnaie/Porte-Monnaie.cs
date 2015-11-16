@@ -12,7 +12,7 @@ namespace Porte_monnaie
     {
         private const decimal ORANGE_ZONE = 50;
         private const decimal RED_ZONE = 1;
-
+       
         public FrmMain()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace Porte_monnaie
 
         private void btnStats_Click(object sender, EventArgs e)
         {
-            Graphique frmGraphique = new Graphique();
+            FrmGraphique frmGraphique = new FrmGraphique();
             frmGraphique.ShowDialog();
         }
 
@@ -150,6 +150,12 @@ namespace Porte_monnaie
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void jeuxDeCouleurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmColor choixcolor = new FrmColor();
+            choixcolor.ShowDialog();
         }
 
         private void catégoriesToolStripMenuItem_Click(object sender, EventArgs e)
