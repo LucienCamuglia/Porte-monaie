@@ -83,7 +83,10 @@ namespace Porte_monnaie
         {
             GestionDB.AddCategorie(tbxNomCategories.Text, cbxType.SelectedText);
         }
-
-
+        /*
+        private bool ExistCategorie(string nomCategorie)
+        {
+            foreach(string value )
+        }*/
     }
 }
