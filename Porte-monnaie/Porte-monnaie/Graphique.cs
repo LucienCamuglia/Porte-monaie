@@ -8,7 +8,9 @@ namespace Porte_monnaie
 {
     public partial class Graphique : Form
     {
-        Chart Cammembert = new Chart();
+        Chart CammembertDepense = new Chart();
+        Chart CammembertCredit = new Chart();
+
         public Graphique()
         {
             InitializeComponent();
@@ -16,52 +18,59 @@ namespace Porte_monnaie
 
         private void Graphique_Load(object sender, EventArgs e)
         {
-            InitialisesGraphique();
-            ChargeGraphique();
+            InitialisesGraphique("Débit", CammembertDepense);
+            ChargeGraphique("Débit", pnlDepense, CammembertDepense);
+            InitialisesGraphique("Crédit",CammembertCredit);
+            ChargeGraphique("Crédit", PnlCredit,CammembertCredit);
         }
 
         /// <summary>
         /// initialisation du graphique
         /// </summary>
-        void InitialisesGraphique()
+        /// <param name="motif">Crédit ou Débit</param>
+        /// <param name="cammembert">Chart</param>
+        void InitialisesGraphique(string motif, Chart cammembert)
         {
             //crée l'aire dans laquelle apparaitra le graphique
             ChartArea Aire = new ChartArea();
             //crée la legende du graphique (carré en haut a droite)
             Legend Legende = new Legend() { BackColor = Color.CadetBlue, ForeColor = Color.Black, Title = "Catégories" };
             Aire.Name = "AireDuCammembert";
-            Cammembert.ChartAreas.Add(Aire);
-            Cammembert.Dock = System.Windows.Forms.DockStyle.Fill;
-            Legende.Name = "Etat des dépenses";
-            Cammembert.Legends.Add(Legende);
-            Cammembert.Location = new System.Drawing.Point(0, 50);
+            cammembert.ChartAreas.Add(Aire);
+            cammembert.Dock = System.Windows.Forms.DockStyle.Fill;
+            Legende.Name = "Etat des "+motif;
+            cammembert.Legends.Add(Legende);
+            cammembert.Location = new System.Drawing.Point(0, 50);
         }
 
-        /// <summary>
+       /// <summary>
         /// charge le graphique, définit les parts du cammembert et le nom des catégories
-        /// </summary>
-        void ChargeGraphique()
+       /// </summary>
+       /// <param name="motif">Crédit ou Débit</param>
+       /// <param name="zone">Panel dans lequel le graphique sera affiché</param>
+       /// <param name="cammembert">Chart</param>
+        void ChargeGraphique(string motif, Panel zone, Chart cammembert)
         {
 
             //supprime toutes les parts du cammembert
-            Cammembert.Series.Clear();
+            cammembert.Series.Clear();
             //pallete de couleures
-            Cammembert.Palette = ChartColorPalette.Excel;
-            Cammembert.BackColor = Color.Green;
+            cammembert.Palette = ChartColorPalette.Excel;
+            cammembert.BackColor = Color.Green;
             //titre du graphique
-            Cammembert.Titles.Add("Etat des dépenses");
-            Cammembert.ChartAreas[0].BackColor = Color.Transparent;
+            cammembert.Titles.Add("Etat des " + motif);
+            cammembert.ChartAreas[0].BackColor = Color.Transparent;
             //crée la serie
             Series series1 = new Series
             {
-                Name = "Dépenses",
+                Name = motif,
                 IsVisibleInLegend = true,
                 Color = System.Drawing.Color.Blue,
                 ChartType = SeriesChartType.Pie
             };
 
-            Cammembert.Series.Add(series1);
-            string[,] maserie = RecupereInfo("Débit");
+            cammembert.Series.Add(series1);
+            string[,] maserie = RecupereInfo(motif);
 
 
             for (int i = 0; i < maserie.Length / 2; i++)
@@ -79,10 +88,8 @@ namespace Porte_monnaie
 
             }
 
-            Cammembert.Invalidate();
-            pnlCammembert.Controls.Add(Cammembert);
-
-
+            cammembert.Invalidate();
+            zone.Controls.Add(cammembert);
         }
 
         /// <summary>
