@@ -199,6 +199,7 @@
             this.catégoriesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.catégoriesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.catégoriesToolStripMenuItem.Text = "Catégories";
+            this.catégoriesToolStripMenuItem.Click += new System.EventHandler(this.catégoriesToolStripMenuItem_Click);
             // 
             // FrmMain
             // 

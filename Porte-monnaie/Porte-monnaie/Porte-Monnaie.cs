@@ -151,5 +151,11 @@ namespace Porte_monnaie
         {
             Application.Exit();
         }
+
+        private void catégoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditionCategories frmCat = new EditionCategories();
+            frmCat.ShowDialog();
+        }
     }
 }
